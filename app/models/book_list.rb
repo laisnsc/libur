@@ -4,7 +4,7 @@ class BookList < ApplicationRecord
   belongs_to :user_book
   belongs_to :list
 
-  # delegate :user, to: :list
+  # delegate :users, to: :list
   # delegate :author, to: :book
   # delegate :title, to: :book
 
