@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     resources :lists, module: :users
     resources :user_books
   end
+
+  resources :authors do
+    resources :books, module: :authors
+  end
 end
