@@ -15,10 +15,12 @@ class Author < ApplicationRecord
 
   def unique_name_registered
     authors = Author.by_transliterated_name(name)
+    authors = authors.where.not(id: id) if persisted?
     errors.add(:base, :existent) if authors.any?
   end
 
   def transliterate_name
+    return if name.nil?
     self.transliterated_name ||= I18n.transliterate(name)
   end
 end
